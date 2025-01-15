@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +22,7 @@ public class TopicoController {
     private final ITopicoEntityMapper topicoEntityMapper;
 
     @PostMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<TopicoResponse> addTopico(@Valid @RequestBody TopicoRequest request, HttpServletRequest HTTPRequest) {
         Topico topico = topicoEntityMapper.topicoRequestToTopico(request);
         Topico topicoSaved = topicoService.saveTopico(topico, HTTPRequest);
@@ -50,6 +52,7 @@ public class TopicoController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<TopicoResponse> updateTopico(@PathVariable Long id, @Valid @RequestBody TopicoRequest request) {
         Topico topico = topicoService.getTopico(id);
         Topico topicoRequest = topicoEntityMapper.topicoRequestToTopico(request);
@@ -60,6 +63,7 @@ public class TopicoController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<Void> deleteTopico(@PathVariable Long id) {
         topicoService.deleteTopico(id);
 
