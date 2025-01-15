@@ -2,7 +2,7 @@
 
 ## Descripción
 
-*Foro Hub* es una aplicación backend diseñada para gestionar un foro interactivo donde los usuarios pueden crear, visualizar, y moderar temas y respuestas segun su curso categoria o subcategoria. El proyecto incluye permisos avanzados, roles predefinidos, y un sistema de inicialización automática de datos.
+*Foro Hub* es una aplicación backend diseñada para gestionar un foro interactivo donde los usuarios pueden crear, visualizar, y moderar topicos y respuestas segun su curso. El proyecto incluye permisos avanzados, roles predefinidos, y un sistema de inicialización automática de datos.
 
 ## Características
 
